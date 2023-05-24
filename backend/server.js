@@ -64,6 +64,17 @@ app.get('/posts', async (req, res) => {
 
 })
 
+app.get('/posts', async (req, res) => {
+    try{
+        const result = await client.query('SELECT * FROM posts')
+        res.json(result.rows)
+    } catch (err){
+        console.error(err)
+        res.sendStatus(500)
+    }
+
+})
+
 
 
 
