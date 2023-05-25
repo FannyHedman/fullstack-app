@@ -66,9 +66,6 @@ app.get('/posts', async (req, res) => {
 
 
 
-
-
-
 app.listen(8800, () => {
     console.log("server is running")
 })
