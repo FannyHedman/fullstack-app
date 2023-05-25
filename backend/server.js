@@ -53,7 +53,6 @@ app.get('/accounts', async (req, res) => {
     }
 
 })
-
 app.get('/posts', async (req, res) => {
     try{
         const result = await client.query('SELECT * FROM posts')
@@ -64,6 +63,8 @@ app.get('/posts', async (req, res) => {
     }
 
 })
+
+
 
 
 
