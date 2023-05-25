@@ -1,8 +1,10 @@
-import React from 'react'
+
 
 function profilePage() {
   return (
-    <div>profilePage</div>
+    <div>
+        profile
+    </div>
   )
 }
 
