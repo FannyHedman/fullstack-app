@@ -1,9 +1,9 @@
+import React from 'react'
 
-
-function Profile() {
+function profilePage() {
   return (
     <div>profilePage</div>
   )
 }
 
-export default Profile
+export default profilePage
