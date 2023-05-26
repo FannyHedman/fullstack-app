@@ -1,8 +1,10 @@
+import { HeroSection } from "../components/heroSection"
 
 
 function Home() {
   return (
-    <div>Välkommen!</div>
+    <>
+    <div><HeroSection/></div></>
   )
 }
 
