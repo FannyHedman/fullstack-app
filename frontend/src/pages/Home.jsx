@@ -1,9 +1,11 @@
-import React from 'react'
+import inloggForm from "./components/inloggForm"
 
-function homePage() {
+function Home() {
   return (
-    <div>Välkommen!</div>
+    <div>
+<inloggForm />
+    </div>
   )
 }
 
-export default homePage
+export default Home
