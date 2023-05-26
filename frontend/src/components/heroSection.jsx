@@ -6,6 +6,7 @@ export const HeroSection = () => {
   return (
     <>
     <HeroSectionContainer>
+      <h1>test</h1>
       <Img src={heroimage} alt="Couple in love"/>
       <HeroSectionHeader>LOVE WILL ALWAYS EXIST WHEN YOU LOVE YOURSELF</HeroSectionHeader>
       <HeroSectionButton>START DATING</HeroSectionButton>
