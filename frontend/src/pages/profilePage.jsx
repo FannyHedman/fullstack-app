@@ -1,9 +1,11 @@
-
+import Navbar from "../components/navbar"
 
 function profilePage() {
   return (
     <div>
-        profile
+        <Navbar>
+
+        </Navbar>
     </div>
   )
 }
