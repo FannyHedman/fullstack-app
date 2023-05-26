@@ -1,10 +1,10 @@
-import inloggForm from "./components/inloggForm"
+import { HeroSection } from "../components/heroSection"
+
 
 function Home() {
   return (
-    <div>
-<inloggForm />
-    </div>
+    <>
+    <div><HeroSection/></div></>
   )
 }
 

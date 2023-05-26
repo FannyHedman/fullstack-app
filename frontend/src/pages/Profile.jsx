@@ -1,7 +1,10 @@
 
+
 function Profile() {
   return (
-    <div>Profilsidan</div>
+    <div>
+        profile
+    </div>
   )
 }
 
