@@ -3,13 +3,21 @@ import heroimage from '/img/heroimage.jpg'
 import styled from 'styled-components'
 
 export const HeroSection = () => {
+
+  const handleScroll = () => {
+    window.scrollTo({
+      top:800,
+      behavior: 'smooth'
+    })
+
+  }
   return (
     <>
     <HeroSectionContainer>
-      <h1>test</h1>
+      <HeroSectionHeader>GitTogether</HeroSectionHeader>
       <Img src={heroimage} alt="Couple in love"/>
-      <HeroSectionHeader>LOVE WILL ALWAYS EXIST WHEN YOU LOVE YOURSELF</HeroSectionHeader>
-      <HeroSectionButton>START DATING</HeroSectionButton>
+      <HeroSectionText>LOVE WILL ALWAYS EXIST WHEN YOU LOVE YOURSELF</HeroSectionText>
+      <HeroSectionButton onClick={handleScroll}>START DATING</HeroSectionButton>
     </HeroSectionContainer></>
   )
 }
@@ -36,7 +44,15 @@ const Img = styled.img`
   }
 `;
 
-const HeroSectionHeader = styled.h2`
+const HeroSectionHeader = styled.h1`
+  color: #ffffff;
+  position: absolute;
+     top: 5%;
+     left: 10%;
+     transform: translate(-50%, -50%);
+`
+
+const HeroSectionText = styled.h2`
 color: #ffffff;
   position: absolute;
      top: 50%;
@@ -44,7 +60,7 @@ color: #ffffff;
      transform: translate(-50%, -50%);
 `
 
-const HeroSectionButton = styled.a`
+const HeroSectionButton = styled.button`
 position: absolute;
     top: 60%;
     left: 50%;
@@ -54,6 +70,6 @@ position: absolute;
     background-color: #ffffff;
     color: #000000;
     border-radius: 5px;
-    border-color: #33342C;
+    border-color: #ffffff;
     text-decoration: none;
 `
