@@ -1,17 +1,18 @@
-import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import styled from "styled-components"
 
 function LoginForm() {
   return (
 <div className="grid-container">
+
   <div className="text-column">
-    <h2>GitTogether - Where Hearts Merge!
-</h2>
-    <p>GitTogether is your go-to destination for finding love and meaningful connections. Join our vibrant community of like-minded individuals,<br></br> ready  to embark on a romantic journey alongside you. Experience the <br></br> thrill of new connections, engaging conversations, and unforgettable experiences</p>
-<p>Start your adventure with GitTogether today, and let love guide your path!</p>
+    <h2>GitTogether <br></br>- Where Hearts Merge!</h2>
+    <br></br>
+    <p>GitTogether is your go-to destination for finding love and meaningful connections. Join our vibrant community of like-minded individuals, ready  to embark on a romantic journey alongside you. Experience the thrill of new connections, <br></br>engaging conversations, and unforgettable experiences</p>
+<p>Start your adventure with GitTogether today,<br></br> and let love guide your path!</p>
   </div>
 
-  <div className="form-column">
+  <FormColumn>
   <Form>
     <div className="input-field">
       <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -28,16 +29,28 @@ function LoginForm() {
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Form.Check type="checkbox" label="Godkänn villkoren" />
       </Form.Group>
-      <Button className="form-submit" variant="primary" type="submit">
+      <ButtonForm variant="primary" type="submit">
         Submit
-      </Button>
+      </ButtonForm>
       </div>
     </Form>
-    </div>
+    </FormColumn>
   </div>
 
 
   );
 }
+const ButtonForm= styled.button`
+    font-size: 14px;
+    padding: 12px 13px;
+    background-color: #f3f3ee;
+    border-radius: 10px;
+    `
+const FormColumn=styled.div`
+    display: flex;
+    flex-direction: column;
+    margin: 50px 30px;
+    width:80%
+    `
 
 export default LoginForm;
