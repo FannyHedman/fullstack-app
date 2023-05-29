@@ -14,40 +14,13 @@ export const HeroSection = () => {
     <>
     <HeroSectionContainer>
       <Img src={heroimage} alt="Couple in love"/>
-      {/* <HeroSectionHeader>GitTogether</HeroSectionHeader> */}
 <HeaderContainer><HeroSectionHeader>GitTogether</HeroSectionHeader></HeaderContainer>
       <HeroSectionContent>
-      {/* <HeroSectionHeader>GitTogether</HeroSectionHeader> */}
       <HeroSectionText>Let's merge your hearts</HeroSectionText>
       <HeroSectionButton onClick={handleScroll}>COMMIT</HeroSectionButton></HeroSectionContent>
     </HeroSectionContainer></>
   )
 }
-
-// const HeroSectionContainer = styled.div`
-//     position: relative;
-//     text-align: center;
-// `
-// const Img = styled.img`
-
-//   /* Mobile */
-//   @media (max-width: 767px) {
-//     width: 100%;
-//   }
-
-//   /* iPad */
-//   @media (min-width: 768px) and (max-width: 1023px) {
-//     width: 100%;
-//   }
-
-//   /* Desktop */
-//   @media (min-width: 1024px) {
-//     width: 100%;
-//   }
-// `;
-
-//
-
 
 const HeroSectionContainer = styled.div`
   position: relative;
@@ -55,7 +28,7 @@ const HeroSectionContainer = styled.div`
 `;
 
 const Img = styled.img`
-  width: 100%; /* Set the image width to fill the container */
+  width: 100%;
   background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
 `;
 
