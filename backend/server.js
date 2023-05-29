@@ -54,9 +54,26 @@ app.get('/accounts', async (req, res) => {
 
 })
 app.get('/posts', async (req, res) => {
+
     try{
-        const result = await client.query('SELECT * FROM posts')
+        const result = await client.query('SELECT * FROM posts ORDER BY created DESC')
         res.json(result.rows)
+    } catch (err){
+        console.error(err)
+        res.sendStatus(500)
+    }
+
+})
+
+
+app.post('/posts', async (req, res) => {
+    const {sender, text} = req.body;
+    try{
+        const result = await client.query(
+            'INSERT INTO posts (sender_id, text) VALUES(?, ?)',
+            [sender, text]
+        )
+        res.sendStatus(201)
     } catch (err){
         console.error(err)
         res.sendStatus(500)
