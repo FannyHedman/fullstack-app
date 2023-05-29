@@ -16,7 +16,7 @@ function Posts() {
             setData(response.data)
         })
     .catch(() => {
-        //handle errors
+        
     });
     }, []);
 
