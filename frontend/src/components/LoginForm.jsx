@@ -1,7 +1,37 @@
 import Form from 'react-bootstrap/Form';
 import styled from "styled-components"
+import {useState} from "react"
+import { useNavigate } from 'react-router-dom';
+import axios from "axios"
 
 function LoginForm() {
+
+    const [account, setAccount]=useState({
+    username: "",
+    password:""
+    })
+
+    const [error,setError]=useState(false)
+
+    const navigate=useNavigate()
+    // const accountId= location.pathname.split("/")[2]
+
+    const handleChange= (e)=> {
+        setAccount((prev)=> ({...prev, [e.target.name]: e.target.value}))
+    }
+
+    const handleSubmit= async (e)=>{
+        e.preventDefault();
+        try{
+           const response= await axios.post(`http://localhost:8800/accounts`, account)
+           const id= response.data.id
+           navigate(`/profile/${id}`)
+        }catch(err){
+            console.log(err)
+            setError(true)
+        }
+    }
+
   return (
 <div className="grid-container">
 
@@ -18,20 +48,20 @@ function LoginForm() {
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
 
-        <Form.Control type="email" placeholder="alice@live.se" />
+        <Form.Control onChange={handleChange} name="username" type="email" placeholder="alice@live.se" />
 
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Enter password" />
+        <Form.Control onChange={handleChange} name="password" type="password" placeholder="Enter password" />
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Form.Check type="checkbox" label="Godkänn villkoren" />
       </Form.Group>
-      <ButtonForm variant="primary" type="submit">
+      <ButtonForm onClick={handleSubmit} variant="primary" type="submit">
         Submit
-      </ButtonForm>
+      </ButtonForm> {error && "Account does not exist, try again!"}
       </div>
     </Form>
     </FormColumn>

@@ -39,9 +39,6 @@ client.connect(function (err) {
     console.log('connected to shit')
 })
 
-app.get('/', (req, res) => {
-    res.json('hej')
-})
 
 app.get('/accounts', async (req, res) => {
     try{
@@ -62,6 +59,23 @@ app.get('/posts', async (req, res) => {
         res.sendStatus(500)
     }
 
+})
+
+app.post("/accounts", async (req,res)=>{
+try{
+   const {username, password}=req.body
+
+   const values= [username, password]
+   await client.query('INSERT INTO accounts(username, password) VALUES ($1, $2)', values)
+
+    if (username=== 'fanny@gmail.com' && password=== 'fannysecret'){
+        res.send ("Logged-in")
+    }else{
+        res.send("Account not found")
+    }}catch(error){
+        console.log("Error")
+        req.statusCode(500).send("Error")
+    }
 })
 
 
