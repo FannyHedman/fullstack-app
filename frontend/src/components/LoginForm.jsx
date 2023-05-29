@@ -5,7 +5,6 @@ function LoginForm() {
   return (
 <div className="grid-container">
   <div className="text-column">
-  <h1>TEST</h1>
     <h2>GitTogether - Where Hearts Unite!
 </h2>
     <p>GitTogether is your go-to destination for finding love and meaningful connections. Join our vibrant community of like-minded individuals,<br></br> ready to embark on a romantic journey alongside you. Experience the<br></br> thrill of new connections, engaging conversations, and unforgettable experiences.</p>
