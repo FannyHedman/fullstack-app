@@ -1,13 +1,19 @@
 import Navbar from "../components/navbar"
+import Posts from "../components/Posts"
 
-function profilePage() {
+function Profile() {
   return (
     <div>
         <Navbar>
 
         </Navbar>
+
+        <Posts>
+            
+        </Posts>
+
     </div>
   )
 }
 
-export default profilePage
+export default Profile
