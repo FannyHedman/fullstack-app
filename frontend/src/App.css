@@ -9,3 +9,53 @@ body {
 h1 {
     color: black;
 }
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.text-column {
+    margin: 10%;
+    padding:3%;
+    box-shadow: 5px 10px #735f57;
+    animation-name: bakgrund;
+    animation-duration: 10s;
+}
+@keyframes bakgrund {
+    0% {
+        box-shadow: none;
+    }
+    100% {
+        box-shadow: 5px 10px #735f57;
+    }
+}
+
+Form {
+    border: 1px solid;
+    border-radius: 20%;
+    padding: 5%20%;
+    background-color: #735f57;
+    box-shadow: 5px 10px #888888;
+    color: white;
+
+}
+.input-field {
+    padding: 10%;
+}
+
+#formBasicEmail {
+    margin: 5px 0 15px 0;
+    padding: 10px;
+}
+#formBasicPassword {
+    margin: 5px 0 15px 0;
+    padding: 10px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+}

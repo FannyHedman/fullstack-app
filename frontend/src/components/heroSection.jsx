@@ -1,4 +1,3 @@
-//import React from 'react'
 import heroimage from '/img/heroimage.jpg'
 import styled from 'styled-components'
 
@@ -9,74 +8,18 @@ export const HeroSection = () => {
       top:800,
       behavior: 'smooth'
     })
-
   }
   return (
     <>
     <HeroSectionContainer>
-      <HeroSectionHeader>GitTogether</HeroSectionHeader>
       <Img src={heroimage} alt="Couple in love"/>
+<HeaderContainer><HeroSectionHeader>GitTogether</HeroSectionHeader></HeaderContainer>
       <HeroSectionContent>
-      {/* <HeroSectionHeader>GitTogether</HeroSectionHeader> */}
-      <HeroSectionText>LOVE WILL ALWAYS EXIST WHEN YOU LOVE YOURSELF</HeroSectionText>
-      <HeroSectionButton onClick={handleScroll}>START DATING</HeroSectionButton>      </HeroSectionContent>
-
+      <HeroSectionText>Let's merge your hearts</HeroSectionText>
+      <HeroSectionButton onClick={handleScroll}>COMMIT</HeroSectionButton></HeroSectionContent>
     </HeroSectionContainer></>
   )
 }
-
-// const HeroSectionContainer = styled.div`
-//     position: relative;
-//     text-align: center;
-// `
-// const Img = styled.img`
-
-//   /* Mobile */
-//   @media (max-width: 767px) {
-//     width: 100%;
-//   }
-
-//   /* iPad */
-//   @media (min-width: 768px) and (max-width: 1023px) {
-//     width: 100%;
-//   }
-
-//   /* Desktop */
-//   @media (min-width: 1024px) {
-//     width: 100%;
-//   }
-// `;
-
-// const HeroSectionHeader = styled.h1`
-//   color: #ffffff;
-//   position: absolute;
-//      top: 5%;
-//      left: 10%;
-//      transform: translateX(-50%); /* Only horizontally centered */
-// `
-
-// const HeroSectionText = styled.h2`
-// color: #ffffff;
-//   position: absolute;
-//      top: 50%;
-//      left: 50%;
-//      transform: translate(-50%, -50%);
-// `
-
-// const HeroSectionButton = styled.button`
-// position: absolute;
-//     top: 60%;
-//     left: 50%;
-//     transform: translate(-50%, -50%);
-//     padding: 20px;
-//     font-size: 1.2rem;
-//     background-color: #ffffff;
-//     color: #000000;
-//     border-radius: 5px;
-//     border-color: #ffffff;
-//     text-decoration: none;
-// `
-
 
 const HeroSectionContainer = styled.div`
   position: relative;
@@ -84,8 +27,15 @@ const HeroSectionContainer = styled.div`
 `;
 
 const Img = styled.img`
-  width: 100%; /* Set the image width to fill the container */
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
 `;
+
+const HeaderContainer = styled.div`
+  position: absolute;
+  top: 5%;
+  left: 5%;
+`
 
 const HeroSectionContent = styled.div`
   position: absolute;
@@ -96,24 +46,39 @@ const HeroSectionContent = styled.div`
 
 const HeroSectionHeader = styled.h1`
   color: #ffffff;
-  /* margin-bottom: 10px;  */
-  position: absolute;
-     top: 5%;
- left: 10%;
-transform: translateX(-50%);
+
+  /* Mobile */
+   @media (max-width: 767px) {
+     font-size: 1.2rem;
+}
 `;
 
 const HeroSectionText = styled.h2`
   color: #ffffff;
-  margin-bottom: 30px; /* Add some spacing between elements */
+  margin-bottom: 30px;
+
+  /* Mobile */
+  @media (max-width: 767px) {
+     font-size: 1rem;
+}
 `;
 
 const HeroSectionButton = styled.button`
-  padding: 20px;
+  padding: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
   font-size: 1.2rem;
-  background-color: #ffffff;
-  color: #000000;
-  border-radius: 5px;
-  border-color: #ffffff;
+  letter-spacing: 0.055em;
+  /* background-image: linear-gradient(to right, #dccfbd 0%, #e4bdaf 51%, #dccfbd 100%);
+  color: #2D1F1F; */
+  border-radius: 10px;
+  border-color: #dccfbd;
+  background-color: #e7d2d2f3;
+  color: black;
   text-decoration: none;
+
+  /* Mobile */
+  @media (max-width: 767px) {
+     font-size: 1rem;
+}
 `;

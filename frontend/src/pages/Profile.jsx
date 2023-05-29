@@ -1,5 +1,6 @@
 import Navbar from "../components/navbar"
 import Posts from "../components/Posts"
+import { ProfileInfo } from '../components/profileInfo';
 
 function Profile() {
   return (
@@ -8,9 +9,12 @@ function Profile() {
 
         </Navbar>
 
+        <ProfileInfo />
+
         <Posts>
-            
+
         </Posts>
+
 
     </div>
   )
