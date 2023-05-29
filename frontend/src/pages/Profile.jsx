@@ -1,9 +1,12 @@
-
+import { ProfileInfo } from '../components/profileInfo';
 
 function Profile() {
   return (
     <div>
-        profile
+        <h1>Profil</h1>
+        <div>
+          <ProfileInfo />
+        </div>
     </div>
   )
 }
