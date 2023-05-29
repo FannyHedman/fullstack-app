@@ -1,4 +1,3 @@
-import React from 'react'
 import heroimage from '/img/heroimage.jpg'
 import styled from 'styled-components'
 
