@@ -6,9 +6,10 @@ function LoginForm() {
 
 <div className="grid-container">
   <div className="text-column">
-    <h2>Heading</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus id molestiae non dicta provident sed ipsum saepe voluptatem rerum, assumenda exercitationem laudantium nobis? Et, ipsum unde, maiores totam aliquid ab fugiat animi quam voluptatem corrupti quos accusamus dolore explicabo placeat voluptatibus at doloremque consequatur ipsam.</p>
-<p>Lorem ipsum dolor sit amet.</p>
+    <h2>GitTogether - Where Hearts Unite!
+</h2>
+    <p>GitTogether is your go-to destination for finding love and meaningful connections. Join our vibrant community of like-minded individuals,<br></br> ready to embark on a romantic journey alongside you. Experience the<br></br> thrill of new connections, engaging conversations, and unforgettable experiences.</p>
+<p>Start your adventure with GitTogether today, and let love guide your path!</p>
   </div>
 
   <div className="form-column">
