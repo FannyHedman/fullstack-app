@@ -1,6 +1,6 @@
 
 
-function profilePage() {
+function Profile() {
   return (
     <div>
         profile
@@ -8,4 +8,4 @@ function profilePage() {
   )
 }
 
-export default profilePage
+export default Profile
