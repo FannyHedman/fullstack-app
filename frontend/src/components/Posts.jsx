@@ -16,7 +16,7 @@ function Posts() {
             setData(response.data)
         })
     .catch(() => {
-        
+
     });
     }, []);
 
@@ -39,7 +39,7 @@ function Posts() {
         event.preventDefault();
         axios.post('http://localhost:8800/posts', formData)
         .then(() => {
-            //Handle success
+           
 
         })
         .catch(() => {
