@@ -7,14 +7,13 @@ import axios from "axios"
 function LoginForm() {
 
     const [account, setAccount]=useState({
+    id: "",
     username: "",
     password:""
     })
 
     const [error,setError]=useState(false)
-
     const navigate=useNavigate()
-    // const accountId= location.pathname.split("/")[2]
 
     const handleChange= (e)=> {
         setAccount((prev)=> ({...prev, [e.target.name]: e.target.value}))
@@ -33,13 +32,13 @@ function LoginForm() {
     }
 
   return (
-<div className="grid-container">
 
+  <div className="grid-container">
   <div className="text-column">
     <h2>GitTogether <br></br>- Where Hearts Merge!</h2>
     <br></br>
     <p>GitTogether is your go-to destination for finding love and meaningful connections. Join our vibrant community of like-minded individuals, ready  to embark on a romantic journey alongside you. Experience the thrill of new connections, <br></br>engaging conversations, and unforgettable experiences</p>
-<p>Start your adventure with GitTogether today,<br></br> and let love guide your path!</p>
+    <p>Start your adventure with GitTogether today,<br></br> and let love guide your path!</p>
   </div>
 
   <FormColumn>
@@ -47,11 +46,8 @@ function LoginForm() {
     <div className="input-field">
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
-
         <Form.Control onChange={handleChange} name="username" type="email" placeholder="alice@live.se" />
-
       </Form.Group>
-
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control onChange={handleChange} name="password" type="password" placeholder="Enter password" />
@@ -70,6 +66,7 @@ function LoginForm() {
 
   );
 }
+
 const ButtonForm= styled.button`
     font-size: 14px;
     padding: 12px 13px;
