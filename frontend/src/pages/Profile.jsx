@@ -1,12 +1,22 @@
+import Navbar from "../components/navbar"
+import Posts from "../components/Posts"
 import { ProfileInfo } from '../components/profileInfo';
 
 function Profile() {
   return (
     <div>
-        <h1>Profil</h1>
-        <div>
-          <ProfileInfo />
-        </div>
+        <Navbar>
+
+        </Navbar>
+
+        <h1 className="ProfileLogo">Profile</h1>
+        <ProfileInfo />
+
+        <Posts>
+
+        </Posts>
+
+
     </div>
   )
 }

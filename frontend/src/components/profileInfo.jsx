@@ -1,13 +1,35 @@
 import styled from 'styled-components';
 
 const InfoContainer = styled.div`
-  margin-left: 2rem;
+position: relative;
+top: 100px;
+  margin-left: 6rem;
+
+  @media screen and (max-width: 787px) {
+margin-left: 12rem;
+
+}
+
+@media screen and (max-width: 562px) {
+margin-left: 9rem;
+
+}
+
+@media screen and (max-width: 474px) {
+margin-left: 5rem;
+
+}
 `
 
 const ImgHolder = styled.img`
+background-image: url("../../public/img/twitter-avi-gender-balanced-figure.webp");
+background-repeat: no-repeat;
+background-size: contain;
+margin-left: 50px;
   border-radius: 50%;
   width: 10rem;
   height: 10rem;
+
   border-color: black;
   background-color: #D9D9D9;
 `
