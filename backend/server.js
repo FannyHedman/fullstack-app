@@ -1,6 +1,6 @@
-import {config} from 'dotenv'
+import { config } from 'dotenv'
 import pkg from 'pg'
-const {Client} = pkg
+const { Client } = pkg
 
 import express from 'express'
 import cors from 'cors'
@@ -25,7 +25,6 @@ app.use((request, response, next) => {
     next()
 })
 
-
 const client = new Client({
     database: process.env.DATABASE,
     host: process.env.HOST,
@@ -39,33 +38,45 @@ client.connect(function (err) {
     console.log('connected to shit')
 })
 
-app.get('/', (req, res) => {
-    res.json('hej')
-})
-
 app.get('/accounts', async (req, res) => {
-    try{
+    try {
         const result = await client.query('SELECT * FROM accounts')
         res.json(result.rows)
-    } catch (err){
+    } catch (err) {
         console.error(err)
         res.sendStatus(500)
     }
-
 })
 app.get('/posts', async (req, res) => {
-    try{
+    try {
         const result = await client.query('SELECT * FROM posts')
         res.json(result.rows)
-    } catch (err){
+    } catch (err) {
         console.error(err)
         res.sendStatus(500)
     }
-
 })
 
+app.post('/accounts', async (req, res) => {
+    const { username, password } = req.body
+    const values = [username, password]
 
+    const account = await client.query(
+        'SELECT id, username, password FROM accounts WHERE username = $1 AND password = $2',
+        values
+    )
+
+    const user = account.rows.find(
+        (acc) => acc.username === username && acc.password === password
+    )
+
+    if (user) {
+        res.status(200).json({ id: user.id, message: 'Logged in' })
+    } else {
+        res.status(400).send('Not found')
+    }
+})
 
 app.listen(8800, () => {
-    console.log("server is running")
+    console.log('server is running')
 })
