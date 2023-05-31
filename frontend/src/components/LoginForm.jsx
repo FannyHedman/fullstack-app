@@ -13,7 +13,7 @@ function LoginForm() {
   </div>
 
   <FormColumn>
-  <Form>
+  <Form className="login">
     <div className="input-field">
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>

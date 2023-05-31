@@ -69,8 +69,8 @@ app.get('/posts', async (req, res) => {
 app.post('/posts', async (req, res) => {
     const {sender, text} = req.body;
     try{
-        const result = await client.query(
-            'INSERT INTO posts (sender_id, text) VALUES(?, ?)',
+         await client.query(
+            'INSERT INTO posts (sender_id, text) VALUES($1, $2)',
             [sender, text]
         )
         res.sendStatus(201)
