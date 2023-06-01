@@ -14,8 +14,9 @@ function Posts() {
     const [account, setAccount] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:8800/posts')
+        axios.get('http://localhost:8800/posts', formData)
         .then(response => {
+
             setData(response.data)
         })
     .catch(() => {
@@ -24,9 +25,10 @@ function Posts() {
     }, []);
 
     useEffect(() => {
-        axios.get('http://localhost:8800/account')
+        axios.get('http://localhost:8800/account', id)
         .then(response => {
             setAccount(response.data)
+
         })
     .catch(() => {
 
@@ -87,12 +89,7 @@ function Posts() {
 <CardGroup>
 
 
-{account.map(item => (
-    <div key={item.id}>
-        <p>{item.name}</p>
 
-    </div>
-))}
 {data.map(item => (
                 <div key={item.id}>
                     <CardI>
