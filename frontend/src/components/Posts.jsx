@@ -11,7 +11,6 @@ function Posts() {
 
     const { id } = useParams()
     const [data, setData] = useState([])
-    const [account, setAccount] = useState([])
 
     useEffect(() => {
         axios.get('http://localhost:8800/posts', formData)
@@ -24,18 +23,7 @@ function Posts() {
     });
     }, []);
 
-    useEffect(() => {
-        axios.get('http://localhost:8800/account', id)
-        .then(response => {
-            setAccount(response.data)
 
-        })
-    .catch(() => {
-
-    });
-    }, []);
-
-    console.log(account)
 
 
     const [formData, setFormData] = useState({
