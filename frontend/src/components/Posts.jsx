@@ -54,19 +54,6 @@ function Posts() {
     };
 
 
-    const [name, setName] = useState('')
-
-    useEffect(() => {
-      axios.get(`http://localhost:8800/accounts/${id}`)
-      .then(response => {
-        setName(response.data.name)
-      })
-      .catch(error => {
-        console.error(error)
-      })
-    }, [id])
-
-
   return (
     <div>
         <Group>
@@ -86,7 +73,6 @@ function Posts() {
       </ButtonGroup>
     </Form>
 
-    <p>{name}</p>
 
 <CardGroup>
 
