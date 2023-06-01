@@ -24,7 +24,7 @@ function Posts() {
     }, []);
 
     useEffect(() => {
-        axios.get('http://localhost:8800/account')
+        axios.get('http://localhost:8800/accounts')
         .then(response => {
             setAccount(response.data)
         })
@@ -63,8 +63,8 @@ function Posts() {
         })
     };
 
-
   return (
+
     <div>
         <Group>
         <Form onSubmit={handleSubmit}>
@@ -86,18 +86,13 @@ function Posts() {
 
 <CardGroup>
 
-
-{account.map(item => (
-    <div key={item.id}>
-        <p>{item.name}</p>
-
-    </div>
-))}
 {data.map(item => (
                 <div key={item.id}>
                     <CardI>
+                    <p>{item.name}</p>
                     <Card>
       <Card.Body>{item.text}</Card.Body>
+
     </Card>
     </CardI>
                     </div>

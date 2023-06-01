@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import axios from 'axios'
 import { useParams } from 'react-router-dom';
 
+
 const InfoContainer = styled.div`
 position: relative;
 top: 100px;
@@ -24,18 +25,18 @@ margin-left: 5rem;
 }
 `
 
-const ImgHolder = styled.img`
-background-image: url("../../public/img/twitter-avi-gender-balanced-figure.webp");
-background-repeat: no-repeat;
-background-size: contain;
-margin-left: 50px;
-  border-radius: 50%;
-  width: 10rem;
-  height: 10rem;
+// const ImgHolder = styled.img`
+// background-image: url("../../public/img/twitter-avi-gender-balanced-figure.webp");
+// background-repeat: no-repeat;
+// background-size: contain;
+// margin-left: 50px;
+//   border-radius: 50%;
+//   width: 10rem;
+//   height: 10rem;
 
-  border-color: black;
-  background-color: #D9D9D9;
-`
+//   border-color: black;
+//   background-color: #D9D9D9;
+// `
 
 const Hr = styled.hr`
   width: 300px;
@@ -75,9 +76,26 @@ export const ProfileInfo = () => {
       })
     }, [id])
 
+
+    // Images
+
+    let profileImage;
+    if(id === '1') {
+      profileImage = '../../public/img/bild1.jpg'
+    } else if (id === '2') {
+      profileImage = '../../public/img/bild2.jpg'
+    } else if (id === '3') {
+      profileImage = '../../public/img/bild3.jpg'
+    } else if (id === '4') {
+      profileImage = '../../public/img/bild4.jpg'
+    } else {
+      profileImage = '../../public/img/twitter-avi-gender-balanced-figure.webp'
+    }
+
   return(
     <InfoContainer>
-      <ImgHolder />
+      {/* <ImgHolder /> */}
+      <img src={profileImage} alt='Profile Image'/>
       <PlaceHolder>
         <p>{accountData.name}</p>
         <Hr />
