@@ -1,14 +1,17 @@
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { styled } from 'styled-components';
+import { useParams } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import axios from 'axios'
 import {useState, useEffect} from 'react'
 
+
 function Posts() {
 
-
+    const { id } = useParams()
     const [data, setData] = useState([])
+    const [account, setAccount] = useState([])
 
     useEffect(() => {
         axios.get('http://localhost:8800/posts')
@@ -20,8 +23,21 @@ function Posts() {
     });
     }, []);
 
+    useEffect(() => {
+        axios.get('http://localhost:8800/account')
+        .then(response => {
+            setAccount(response.data)
+        })
+    .catch(() => {
+
+    });
+    }, []);
+
+    console.log(account)
+
+
     const [formData, setFormData] = useState({
-        sender: '',
+        sender: id,
         text: ''
     })
 
@@ -70,6 +86,13 @@ function Posts() {
 
 <CardGroup>
 
+
+{account.map(item => (
+    <div key={item.id}>
+        <p>{item.name}</p>
+
+    </div>
+))}
 {data.map(item => (
                 <div key={item.id}>
                     <CardI>
