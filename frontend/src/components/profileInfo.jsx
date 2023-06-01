@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+//import { useParams } from 'react-router-dom';
 
 const InfoContainer = styled.div`
 position: relative;
@@ -43,6 +44,10 @@ const PlaceHolder = styled.div`
 `
 
 export const ProfileInfo = () => {
+    //const { id } = useParams()
+
+
+
   return(
     <InfoContainer>
       <ImgHolder />
