@@ -1,5 +1,7 @@
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
-//import { useParams } from 'react-router-dom';
+import axios from 'axios'
+import { useParams } from 'react-router-dom';
 
 const InfoContainer = styled.div`
 position: relative;
@@ -44,15 +46,25 @@ const PlaceHolder = styled.div`
 `
 
 export const ProfileInfo = () => {
-    //const { id } = useParams()
+    const { id } = useParams()
 
+    const [name, setName] = useState('')
 
+    useEffect(() => {
+      axios.get(`http://localhost:8800/accounts/${id}`)
+      .then(response => {
+        setName(response.data.name)
+      })
+      .catch(error => {
+        console.error(error)
+      })
+    }, [id])
 
   return(
     <InfoContainer>
       <ImgHolder />
       <PlaceHolder>
-        <p>Namn</p>
+        <p>{name}</p>
         <Hr />
       </PlaceHolder>
       <PlaceHolder>
