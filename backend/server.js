@@ -120,16 +120,15 @@ const {id} = req.params
 
 try {
   const account = await client.query(
-    'SELECT name FROM accounts WHERE id = $1', [id]
+    'SELECT name, age, interest FROM accounts WHERE id = $1', [id]
   )
   if (account.rows.length === 0) {
     res.status(404).send('Not found')
     return;
   }
 
-  const name = account.rows[0].name;
-  res.status(200).json({name})
-  
+  const {name, age, interest} = account.rows[0];
+  res.status(200).json({name, age, interest})
 } catch (error) {
   console.error(error)
   res.status(500)
