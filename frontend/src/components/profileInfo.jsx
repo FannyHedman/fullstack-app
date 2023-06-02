@@ -94,17 +94,21 @@ export const ProfileInfo = () => {
 
   return(
     <InfoContainer>
+      <h2>Profile</h2>
       {/* <ImgHolder /> */}
       <img src={profileImage} alt='Profile Image'/>
       <PlaceHolder>
+        <h6>Name</h6>
         <p>{accountData.name}</p>
         <Hr />
       </PlaceHolder>
       <PlaceHolder>
+      <h6>Age</h6>
         <p>{accountData.age}</p>
         <Hr />
       </PlaceHolder>
       <PlaceHolder>
+      <h6>Interests</h6>
         <p>{accountData.interest}</p>
         <Hr />
       </PlaceHolder>
