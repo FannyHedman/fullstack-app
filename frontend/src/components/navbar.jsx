@@ -13,13 +13,13 @@ function navbar() {
         <Container>
 
           <Navbar.Brand className='brand'>
-            <Title>Datingapp</Title>
+            <Title>GitTogether</Title>
             </Navbar.Brand>
 
             <Link id="NavLink" to={'/'}>
             <Button variant="outline-dark">
 
-                Logga ut
+                 Log out
 
                 </Button>
                 </Link>

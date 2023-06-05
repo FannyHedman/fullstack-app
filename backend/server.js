@@ -48,31 +48,29 @@ app.get('/accounts', async (req, res) => {
     }
 })
 app.get('/posts', async (req, res) => {
-
-    try{
-        const result = await client.query('SELECT * FROM posts ORDER BY created DESC')
+    try {
+        const result = await client.query(
+            'SELECT posts.id, accounts.name, posts.created, posts.text FROM posts INNER JOIN accounts ON posts.sender_id = accounts.id ORDER BY posts.created DESC'
+        )
         res.json(result.rows)
     } catch (err) {
         console.error(err)
         res.sendStatus(500)
     }
-
 })
 
-
 app.post('/posts', async (req, res) => {
-    const {sender, text} = req.body;
-    try{
-         await client.query(
+    const { sender, text } = req.body
+    try {
+        await client.query(
             'INSERT INTO posts (sender_id, text) VALUES($1, $2)',
             [sender, text]
         )
         res.sendStatus(201)
-    } catch (err){
+    } catch (err) {
         console.error(err)
         res.sendStatus(500)
     }
-
 })
 
 app.post('/accounts', async (req, res) => {
@@ -91,18 +89,17 @@ app.post('/accounts', async (req, res) => {
     if (user) {
         res.status(200).json({ id: user.id, message: 'Logged in' })
     } else {
-        res.status(400).send('Not found')
+        res.status(404).send('Not found')
     }
 })
-
 
 app.get('/account', async (req, res) => {
     const { id } = req.body
     try {
-        const result = await client.query('SELECT * FROM accounts WHERE id=?',
-        [id]
-        )
-       /* const user = result.rows.find(
+        const result = await client.query('SELECT * FROM accounts WHERE id=?', [
+            id
+        ])
+        /* const user = result.rows.find(
             (acc) => acc.id === id
         )*/
 
@@ -111,29 +108,38 @@ app.get('/account', async (req, res) => {
         console.error(err)
         res.sendStatus(500)
     }
-
 })
 
-
 app.get('/accounts/:id', async (req, res) => {
-const {id} = req.params
+    const { id } = req.params
 
-try {
-  const account = await client.query(
-    'SELECT name FROM accounts WHERE id = $1', [id]
-  )
-  if (account.rows.length === 0) {
-    res.status(404).send('Not found')
-    return;
-  }
+    try {
+        const account = await client.query(
+            'SELECT name, age, interest FROM accounts WHERE id = $1',
+            [id]
+        )
+        if (account.rows.length === 0) {
+            res.status(404).send('Not found')
+            return
+        }
 
-  const name = account.rows[0].name;
-  res.status(200).json({name})
+        const { name, age, interest } = account.rows[0]
+        res.status(200).json({ name, age, interest })
+    } catch (error) {
+        console.error(error)
+        res.status(500)
+    }
+})
 
-} catch (error) {
-  console.error(error)
-  res.status(500)
-}
+app.delete('/posts/:id', async (req, res) => {
+    const id = req.params.id
+    const value = [id]
+    try {
+        await client.query('DELETE FROM posts WHERE id=$1', value)
+        res.json({ message: 'Post deleted' })
+    } catch (err) {
+        console.log(err)
+    }
 })
 
 //By Kevin

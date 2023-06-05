@@ -5,8 +5,10 @@ import { ProfileInfo } from '../components/profileInfo';
 function Profile() {
   return (
     <div>
-        <Navbar />
-        <h1 className="ProfileLogo">Profile</h1>
+        <Navbar>
+
+        </Navbar>
+
         <ProfileInfo />
         <Posts />
     </div>
