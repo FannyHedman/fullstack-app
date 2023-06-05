@@ -5,6 +5,9 @@ import { useParams } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import axios from 'axios'
 import {useState, useEffect} from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+
 
 
 function Posts() {
@@ -55,8 +58,6 @@ function Posts() {
         event.preventDefault();
         axios.post('http://localhost:8800/posts', formData)
         .then(() => {
-
-
         })
         .catch(() => {
             //Handle errors
@@ -64,13 +65,22 @@ function Posts() {
     };
 
 
+
+const handleClickDelete= async (id)=>{
+    try{
+    await axios.delete(`http://localhost:8800/posts/${id}` )
+    window.location.reload()
+}catch (err){
+    console.error(err)
+}}
+
   return (
     <div>
         <Group>
         <Form onSubmit={handleSubmit}>
       <Form.Group controlId="exampleForm.ControlTextarea1">
         <Title>
-        <Form.Label>Inlägg</Form.Label>
+        <Form.Label>Inlägg </Form.Label>
         </Title>
         <Wrap>
         <Form.Control name="text" as="textarea" rows={3} style={{ "background-color": '#f8f8f8' }} placeholder="Type here..." onChange={handleChange}/>
@@ -95,13 +105,17 @@ function Posts() {
 ))}
 {data.map(item => (
                 <div key={item.id}>
-                    <CardI>
-                    <Card>
-      <Card.Body>{item.text}</Card.Body>
+                <CardI>
+                <Card>
+      <Card.Body className="post-text">{item.text}
+    </Card.Body>
     </Card>
+    <CardWrap>
+    <FontAwesomeIcon className="icon-btn-trash" onClick={()=>handleClickDelete(item.id)} icon={faTrashAlt} size="xs"/>
+    </CardWrap>
     </CardI>
-                    </div>
-            ))}
+    </div>
+    ))}
 
     </CardGroup>
     </Group>
@@ -110,6 +124,12 @@ function Posts() {
 }
 
 export default Posts
+
+const CardWrap=styled.div`
+display:flex;
+justify-content: end;
+margin-top: 15px;
+`
 
 const Group = styled.div`
 margin-right: 100px;

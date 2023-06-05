@@ -91,7 +91,7 @@ app.post('/accounts', async (req, res) => {
     if (user) {
         res.status(200).json({ id: user.id, message: 'Logged in' })
     } else {
-        res.status(400).send('Not found')
+        res.status(404).send('Not found')
     }
 })
 
@@ -135,6 +135,20 @@ try {
   res.status(500)
 }
 })
+
+
+app.delete("/posts/:id", async (req, res)=>{
+   const id= req.params.id
+   const value=[id]
+try{
+  await client.query('DELETE FROM posts WHERE id=$1', value)
+res.json({message:'Book deleted'})
+}catch(err){
+    console.log(err)
+}
+})
+
+
 
 app.listen(8800, () => {
     console.log('server is running')
