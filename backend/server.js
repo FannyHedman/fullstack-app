@@ -129,12 +129,34 @@ try {
 
   const name = account.rows[0].name;
   res.status(200).json({name})
-  
+
 } catch (error) {
   console.error(error)
   res.status(500)
 }
 })
+
+//By Kevin
+app.get('/accounts/:id/messages', async (req, res) => {
+    const {id} = req.params
+    console.log(id);
+    try {
+      const account = await client.query(
+        'SELECT name FROM accounts WHERE id=id', [id]
+      )
+      if (account.rows.length === 0) {
+        res.status(404).send('Not found')
+        return;
+      }
+
+      const name = account.rows[0].name;
+      res.status(200).json({name})
+
+    } catch (error) {
+      console.error(error)
+      res.status(500)
+    }
+    })
 
 app.listen(8800, () => {
     console.log('server is running')

@@ -43,7 +43,6 @@ function Posts() {
 
     const handleChange = (event) => {
         setFormData({
-
             ...formData,
             [event.target.name] : event.target.value
 
@@ -97,7 +96,7 @@ function Posts() {
                 <div key={item.id}>
                     <CardI>
                     <Card>
-      <Card.Body>{item.text}</Card.Body>
+      <Card.Body>{item.sender_id}: {item.text}</Card.Body>
     </Card>
     </CardI>
                     </div>

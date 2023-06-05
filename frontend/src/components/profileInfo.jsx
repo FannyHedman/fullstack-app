@@ -53,6 +53,7 @@ export const ProfileInfo = () => {
     useEffect(() => {
       axios.get(`http://localhost:8800/accounts/${id}`)
       .then(response => {
+        console.log(response.data.name);
         setName(response.data.name)
       })
       .catch(error => {
