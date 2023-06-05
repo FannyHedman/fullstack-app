@@ -25,6 +25,10 @@ margin-left: 5rem;
 }
 `
 
+const ProfileHeader = styled.h2`
+  margin-bottom: 30px;
+`
+
 // const ImgHolder = styled.img`
 // background-image: url("../../public/img/twitter-avi-gender-balanced-figure.webp");
 // background-repeat: no-repeat;
@@ -94,7 +98,7 @@ export const ProfileInfo = () => {
 
   return(
     <InfoContainer>
-      <h2>Profile</h2>
+      <ProfileHeader>Profile</ProfileHeader>
       {/* <ImgHolder /> */}
       <img src={profileImage} alt='Profile Image'/>
       <PlaceHolder>

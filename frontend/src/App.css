@@ -54,10 +54,7 @@ h1 {
     cursor: pointer;
     margin-right: 10px;
 }
-.icon-btn-pen {
-    cursor: pointer;
-    margin-right: 30px;
-}
+
 
 
 @media only screen and (max-width: 600px) {
