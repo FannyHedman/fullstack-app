@@ -5,6 +5,9 @@ import { useParams } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import axios from 'axios'
 import {useState, useEffect} from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+
 
 
 function Posts() {
@@ -63,6 +66,16 @@ function Posts() {
         })
     };
 
+
+
+const handleClickDelete= async (id)=>{
+    try{
+    await axios.delete(`http://localhost:8800/posts/${id}` )
+    window.location.reload()
+}catch (err){
+    console.error(err)
+}}
+
   return (
 
     <div>
@@ -88,15 +101,19 @@ function Posts() {
 <h2>Feed</h2>
 {data.map(item => (
                 <div key={item.id}>
-                    <CardI>
+                <CardI>
                     <p>{item.name}</p>
-                    <Card>
-      <Card.Body>{item.text}</Card.Body>
+                <Card>
+      <Card.Body className="post-text">{item.text}
+    </Card.Body>
 
     </Card>
+    <CardWrap>
+    <FontAwesomeIcon className="icon-btn-trash" onClick={()=>handleClickDelete(item.id)} icon={faTrashAlt} size="xs"/>
+    </CardWrap>
     </CardI>
-                    </div>
-            ))}
+    </div>
+    ))}
 
     </CardGroup>
     </Group>
@@ -105,6 +122,12 @@ function Posts() {
 }
 
 export default Posts
+
+const CardWrap=styled.div`
+display:flex;
+justify-content: end;
+margin-top: 15px;
+`
 
 const Group = styled.div`
 margin-right: 100px;
