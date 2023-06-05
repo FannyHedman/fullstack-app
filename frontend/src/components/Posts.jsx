@@ -27,7 +27,7 @@ function Posts() {
     }, []);
 
     useEffect(() => {
-        axios.get('http://localhost:8800/account')
+        axios.get('http://localhost:8800/accounts')
         .then(response => {
             setAccount(response.data)
         })
@@ -58,6 +58,8 @@ function Posts() {
         event.preventDefault();
         axios.post('http://localhost:8800/posts', formData)
         .then(() => {
+        window.location.reload()
+
         })
         .catch(() => {
             //Handle errors
@@ -75,12 +77,13 @@ const handleClickDelete= async (id)=>{
 }}
 
   return (
+
     <div>
         <Group>
         <Form onSubmit={handleSubmit}>
       <Form.Group controlId="exampleForm.ControlTextarea1">
         <Title>
-        <Form.Label>Inlägg </Form.Label>
+        <Form.Label>Post</Form.Label>
         </Title>
         <Wrap>
         <Form.Control name="text" as="textarea" rows={3} style={{ "background-color": '#f8f8f8' }} placeholder="Type here..." onChange={handleChange}/>
@@ -88,27 +91,22 @@ const handleClickDelete= async (id)=>{
       </Form.Group>
       <ButtonGroup>
       <Button variant="primary" type="submit">
-        Skicka
+        Send
       </Button>
       </ButtonGroup>
     </Form>
 
 
 <CardGroup>
-
-
-{account.map(item => (
-    <div key={item.id}>
-        <p>{item.name}</p>
-
-    </div>
-))}
+<h2>Feed</h2>
 {data.map(item => (
                 <div key={item.id}>
                 <CardI>
+                    <p>{item.name}</p>
                 <Card>
       <Card.Body className="post-text">{item.text}
     </Card.Body>
+
     </Card>
     <CardWrap>
     <FontAwesomeIcon className="icon-btn-trash" onClick={()=>handleClickDelete(item.id)} icon={faTrashAlt} size="xs"/>
