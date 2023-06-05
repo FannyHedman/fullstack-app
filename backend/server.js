@@ -50,7 +50,7 @@ app.get('/accounts', async (req, res) => {
 app.get('/posts', async (req, res) => {
     try {
         const result = await client.query(
-            'SELECT accounts.name, posts.created, posts.text FROM posts INNER JOIN accounts ON posts.sender_id = accounts.id ORDER BY posts.created DESC'
+            'SELECT posts.id, accounts.name, posts.created, posts.text FROM posts INNER JOIN accounts ON posts.sender_id = accounts.id ORDER BY posts.created DESC'
         )
         res.json(result.rows)
     } catch (err) {
@@ -131,19 +131,16 @@ app.get('/accounts/:id', async (req, res) => {
     }
 })
 
-
-app.delete("/posts/:id", async (req, res)=>{
-   const id= req.params.id
-   const value=[id]
-try{
-  await client.query('DELETE FROM posts WHERE id=$1', value)
-res.json({message:'Book deleted'})
-}catch(err){
-    console.log(err)
-}
+app.delete('/posts/:id', async (req, res) => {
+    const id = req.params.id
+    const value = [id]
+    try {
+        await client.query('DELETE FROM posts WHERE id=$1', value)
+        res.json({ message: 'Post deleted' })
+    } catch (err) {
+        console.log(err)
+    }
 })
-
-
 
 app.listen(8800, () => {
     console.log('server is running')
