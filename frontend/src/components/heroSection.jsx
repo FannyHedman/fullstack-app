@@ -15,7 +15,7 @@ export const HeroSection = () => {
       <Img src={heroimage} alt="Couple in love"/>
 <HeaderContainer><HeroSectionHeader>GitTogether</HeroSectionHeader></HeaderContainer>
       <HeroSectionContent>
-      <HeroSectionText>Lets merge your hearts</HeroSectionText>
+      <HeroSectionText>Let{"'"}s merge your hearts</HeroSectionText>
       <HeroSectionButton onClick={handleScroll}>COMMIT</HeroSectionButton></HeroSectionContent>
     </HeroSectionContainer></>
   )

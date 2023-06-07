@@ -15,7 +15,7 @@ h1 {
 }
 .text-column {
     margin: 10%;
-    padding:3%;
+    padding: 3%;
     box-shadow: 5px 10px #735f57;
     animation-name: bakgrund;
     animation-duration: 10s;
@@ -36,7 +36,6 @@ h1 {
     background-color: #735f57;
     box-shadow: 5px 10px #e7d2d2f3;
     color: white;
-
 }
 .input-field {
     padding: 10%;
@@ -51,6 +50,12 @@ h1 {
     padding: 10px;
 }
 
+.icon-btn-trash {
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+
 
 @media only screen and (max-width: 600px) {
     .grid-container {
@@ -60,43 +65,34 @@ h1 {
     }
 }
 
-
 @media screen and (max-width: 787px) {
-.ProfileLogo {
-    position:relative;
-    top: 65px;
-    left: 270px;
-
-
-}
+    .ProfileLogo {
+        position: relative;
+        top: 65px;
+        left: 270px;
     }
+}
 
-    @media screen and (max-width: 562px) {
-        .ProfileLogo {
-            position:relative;
-            top: 65px;
-            left: 220px;
+@media screen and (max-width: 562px) {
+    .ProfileLogo {
+        position: relative;
+        top: 65px;
+        left: 220px;
+    }
+}
 
+@media screen and (min-width: 787px) {
+    .ProfileLogo {
+        position: relative;
+        top: 65px;
+        left: 170px;
+    }
+}
 
-        }
-            }
-
-    @media screen and (min-width: 787px) {
-        .ProfileLogo {
-            position:relative;
-            top: 65px;
-            left: 170px;
-
-
-        }
-            }
-
-            @media screen and (max-width: 474px) {
-                .ProfileLogo {
-                    position:relative;
-                    top: 65px;
-                    left: 160px;
-
-
-                }
-                    }
+@media screen and (max-width: 474px) {
+    .ProfileLogo {
+        position: relative;
+        top: 65px;
+        left: 160px;
+    }
+}

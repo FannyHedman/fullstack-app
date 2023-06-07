@@ -9,14 +9,8 @@ function Profile() {
 
         </Navbar>
 
-        <h1 className="ProfileLogo">Profile</h1>
         <ProfileInfo />
-
-        <Posts>
-
-        </Posts>
-
-
+        <Posts />
     </div>
   )
 }
