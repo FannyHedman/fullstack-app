@@ -10,12 +10,7 @@ function Profile() {
         </Navbar>
 
         <ProfileInfo />
-
-        <Posts>
-
-        </Posts>
-
-
+        <Posts />
     </div>
   )
 }
