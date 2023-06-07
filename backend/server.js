@@ -35,7 +35,7 @@ const client = new Client({
 
 client.connect(function (err) {
     if (err) throw err
-    console.log('connected to shit')
+    console.log('Connected!')
 })
 
 app.get('/accounts', async (req, res) => {
