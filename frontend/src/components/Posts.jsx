@@ -14,7 +14,7 @@ function Posts() {
 
     const { id } = useParams()
     const [data, setData] = useState([])
-    const [account, setAccount] = useState([])
+
 
     useEffect(() => {
         axios.get('http://localhost:8800/posts')
@@ -26,17 +26,6 @@ function Posts() {
     });
     }, []);
 
-    useEffect(() => {
-        axios.get('http://localhost:8800/accounts')
-        .then(response => {
-            setAccount(response.data)
-        })
-    .catch(() => {
-
-    });
-    }, []);
-
-    console.log(account)
 
 
     const [formData, setFormData] = useState({
@@ -86,7 +75,7 @@ const handleClickDelete= async (id)=>{
         <Form.Label>Post</Form.Label>
         </Title>
         <Wrap>
-        <Form.Control name="text" as="textarea" rows={3} style={{ "background-color": '#f8f8f8' }} placeholder="Type here..." onChange={handleChange}/>
+        <Form.Control name="text" as="textarea" rows={3} style={{ "backgroundColor": '#f8f8f8' }} placeholder="Type here..." onChange={handleChange}/>
         </Wrap>
       </Form.Group>
       <ButtonGroup>

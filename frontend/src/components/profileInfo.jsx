@@ -53,22 +53,13 @@ const PlaceHolder = styled.div`
 export const ProfileInfo = () => {
     const { id } = useParams()
 
-    // const [name, setName] = useState('')
+ 
     const [accountData, setAccountData] = useState({
       name: '',
       age: 0,
       interest: ''
     })
 
-    // useEffect(() => {
-    //   axios.get(`http://localhost:8800/accounts/${id}`)
-    //   .then(response => {
-    //     setName(response.data.name)
-    //   })
-    //   .catch(error => {
-    //     console.error(error)
-    //   })
-    // }, [id])
 
     useEffect(() => {
       axios.get(`http://localhost:8800/accounts/${id}`)
