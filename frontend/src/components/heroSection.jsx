@@ -69,8 +69,6 @@ const HeroSectionButton = styled.button`
   padding-right: 40px;
   font-size: 1.2rem;
   letter-spacing: 0.055em;
-  /* background-image: linear-gradient(to right, #dccfbd 0%, #e4bdaf 51%, #dccfbd 100%);
-  color: #2D1F1F; */
   border-radius: 10px;
   border-color: #dccfbd;
   background-color: #e7d2d2f3;

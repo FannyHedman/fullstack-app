@@ -53,22 +53,13 @@ const PlaceHolder = styled.div`
 export const ProfileInfo = () => {
     const { id } = useParams()
 
-    // const [name, setName] = useState('')
+
     const [accountData, setAccountData] = useState({
       name: '',
       age: 0,
       interest: ''
     })
 
-    // useEffect(() => {
-    //   axios.get(`http://localhost:8800/accounts/${id}`)
-    //   .then(response => {
-    //     setName(response.data.name)
-    //   })
-    //   .catch(error => {
-    //     console.error(error)
-    //   })
-    // }, [id])
 
     useEffect(() => {
       axios.get(`http://localhost:8800/accounts/${id}`)
@@ -100,7 +91,7 @@ export const ProfileInfo = () => {
     <InfoContainer>
       <ProfileHeader>Profile</ProfileHeader>
       {/* <ImgHolder /> */}
-      <img src={profileImage} alt='Profile Image'/>
+      <Img src={profileImage} alt='Profile Image'/>
       <PlaceHolder>
         <h6>Name</h6>
         <p>{accountData.name}</p>
@@ -119,3 +110,7 @@ export const ProfileInfo = () => {
     </InfoContainer>
   )
 }
+
+const Img = styled.img`
+  border-radius: 30px;
+  `
