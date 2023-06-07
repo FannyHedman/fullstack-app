@@ -93,22 +93,6 @@ app.post('/accounts', async (req, res) => {
     }
 })
 
-app.get('/account', async (req, res) => {
-    const { id } = req.body
-    try {
-        const result = await client.query('SELECT * FROM accounts WHERE id=?', [
-            id
-        ])
-        /* const user = result.rows.find(
-            (acc) => acc.id === id
-        )*/
-
-        res.json(result.rows)
-    } catch (err) {
-        console.error(err)
-        res.sendStatus(500)
-    }
-})
 
 app.get('/accounts/:id', async (req, res) => {
     const { id } = req.params
