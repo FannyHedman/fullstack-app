@@ -6,22 +6,29 @@ import Card from 'react-bootstrap/Card';
 
 
 function Chat() {
-  const { senderID } = useParams();
+  const { id } = useParams();
   const [accounts, setAccounts] = useState([]);
   const [data, setData] = useState([]);
 
-  useEffect(() => {
-    axios.get(`http://localhost:8800/accounts/${senderID}/messages`)
-    .then(response => setData(response.data))
-    .catch(() => {
+  // useEffect(() => {
+  //   console.log(id);
+  //   axios.get(`http://localhost:8800/accounts/${id}/messages`)
+  //   .then(response => {
+  //     setAccounts(response.data);
+  //     console.log(response.data);
+  //     console.log(accounts);
+  //   })
+  //   .catch(() => {
 
-    })
-  }, []);
+  //   })
+  // }, []);
 
   useEffect(() => {
     axios.get('http://localhost:8800/accounts')
     .then(response => {
-        setAccounts(response.data)
+        setAccounts(response.data);
+      console.log(response.data);
+
     })
     .catch(() => {
 

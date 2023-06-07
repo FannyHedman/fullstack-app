@@ -85,7 +85,7 @@ const handleClickDelete= async (id)=>{
         <Form.Label>Post</Form.Label>
         </Title>
         <Wrap>
-        <Form.Control name="text" as="textarea" rows={3} style={{ "background-color": '#f8f8f8' }} placeholder="Type here..." onChange={handleChange}/>
+        <Form.Control name="text" as="textarea" rows={3} style={{ "backgroundColor": '#f8f8f8' }} placeholder="Type here..." onChange={handleChange}/>
         </Wrap>
       </Form.Group>
       <ButtonGroup>
